@@ -1,9 +1,7 @@
 node('master')
 {
      stage 'build'
-	        checkout scm
-			sh 'mvn clean pacakge'
+	        sh 'mvn clean pacakge'
 	 stage 'test'
-	        checkout scm
-			sh 'mvn clean test'
+	        sh 'mvn clean test'
 }
