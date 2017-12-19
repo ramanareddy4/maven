@@ -1,4 +1,4 @@
-node('new job')
+node('master')
 {
      stage 'build'
 	        checkout scm
