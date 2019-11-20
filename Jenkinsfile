@@ -1,6 +1,6 @@
 #!groovy
 
-def AWS_ACCOUNT_ID = '729445844893'
+def AWS_ACCOUNT_ID = 'aws-credential'
 def REGION = 'us-east-1'
 def ROLE = 'arn:aws:iam::729445844893:role/june-s3'
 def BUCKET = 'testings3file'
