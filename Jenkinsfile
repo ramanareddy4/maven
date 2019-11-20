@@ -1,7 +1,7 @@
 #!groovy
 
 def AWS_ACCOUNT_ID = '729445844893'
-def REGION = 'es-east-1'
+def REGION = 'us-east-1'
 def ROLE = 'arn:aws:iam::729445844893:role/june-s3'
 def BUCKET = 'testings3file'
 def PROJECT = 'maven/single-module'
