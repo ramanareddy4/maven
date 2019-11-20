@@ -24,15 +24,8 @@ pipeline {
         steps {
         script {
           // upload files to S3
-	sh 'export MAVEN_HOME=/home/ec2-user/maven'
-	sh 'export PATH=$PATH:$MAVEN_HOME/bin'
-	sh 'mvn --version'
-	sh 'mvn clean package'
-	def jar_files = findFiles(glob: "**/SourceCode/${PROJECT}/target/*.jar")
-          jar_files.each {
-            echo "JAR found: ${it}"
             withAWS(region: "${REGION}", role: "${ROLE}", roleAccount: "${AWS_ACCOUNT_ID}") {
-              s3Upload(file: "${it}", bucket: "${BUCKET}", path: "${PROJECT}/", acl: 'BucketOwnerFullControl')
+              s3Upload(file: "/home/ec2-user/maven-samples/single-module/target/single-module-project.jar", bucket: "${BUCKET}", path: "${PROJECT}/", acl: 'BucketOwnerFullControl')
             }
 	  }
 	}
