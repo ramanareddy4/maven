@@ -9,6 +9,8 @@ pipeline {
         def PROJECT = 'maven/single-module'
       }
       stage ('Build app and upload artifacts to S3'){
+        agent {
+        }
         steps {
           // build source code
           dir('./SourceCode') {
@@ -26,5 +28,6 @@ pipeline {
           }
         }
       }
+    }
   }
 }
