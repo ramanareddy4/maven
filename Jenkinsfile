@@ -20,20 +20,19 @@ pipeline {
                 checkout scm
             }
         }
-		stage('build and upload'){
+	stage('build and upload'){
         steps {
-          // build source code
-            sh 'mvn -B clean package'            
-        }
         script {
           // upload files to S3
+	   sh 'mvn clean package'
           def jar_files = findFiles(glob: "**/SourceCode/${PROJECT}/target/*.jar")
           jar_files.each {
             echo "JAR found: ${it}"
             withAWS(region: "${REGION}", role: "${ROLE}", roleAccount: "${AWS_ACCOUNT_ID}") {
               s3Upload(file: "${it}", bucket: "${BUCKET}", path: "${PROJECT}/", acl: 'BucketOwnerFullControl')
             }
-          }
+	  }
+	}
       }
     }
   }
