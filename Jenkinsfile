@@ -28,7 +28,6 @@ pipeline {
               s3Upload(file: "/home/ec2-user/maven-samples/single-module/target/single-module-project.jar", bucket: "${BUCKET}", path: "${PROJECT}/", acl: 'BucketOwnerFullControl')
             }
 	  }
-	}
       }
     }
   }
