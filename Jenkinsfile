@@ -24,7 +24,7 @@ pipeline {
         steps {
         script {
           // upload files to S3
-	  // sh 'mvn clean package'
+	   sh 'mvn clean package'
           def jar_files = findFiles(glob: "${PROJECT}/target/*.jar")
           jar_files.each {
             echo "JAR found: ${it}"
