@@ -7,11 +7,7 @@ def PROJECT = 'maven/single-module'
 pipeline {
   agent any
     stages {
-      stage('checkout'){
-        checkout scm
       stage ('Build app and upload artifacts to S3'){
-        agent {
-        }
         steps {
           // build source code
           dir('./SourceCode') {
