@@ -34,7 +34,6 @@ pipeline {
               s3Upload(file: "${it}", bucket: "${BUCKET}", path: "${PROJECT}/", acl: 'BucketOwnerFullControl')
             }
           }
-        }
       }
     }
   }
