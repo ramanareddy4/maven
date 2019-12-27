@@ -6,6 +6,7 @@ def ROLE = 'arn:aws:iam::729445844893:role/june-s3'
 def BUCKET = 'testings3file'
 def PROJECT = 'maven/single-module'
 
+
 pipeline {
   agent any
      stages {
