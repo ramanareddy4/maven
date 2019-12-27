@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline {
-  agent devops
+  agent label devops
      stages {
         stage('Clean Workspace') {
             steps {
