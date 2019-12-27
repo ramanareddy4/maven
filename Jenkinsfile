@@ -14,7 +14,7 @@ pipeline {
         stage('Init') {
             steps {
                 checkout scm
-				echo 'cloning source code'
+	        echo 'cloning source code'
             }
         }
 	stage('build'){
