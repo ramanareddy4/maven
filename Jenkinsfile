@@ -1,14 +1,7 @@
 #!groovy
 
-def AWS_ACCOUNT_ID = 'aws-credential'
-def REGION = 'us-east-1'
-def ROLE = 'arn:aws:iam::729445844893:role/june-s3'
-def BUCKET = 'testings3file'
-def PROJECT = 'maven/single-module'
-
-
 pipeline {
-  agent any
+  agent devops
      stages {
         stage('Clean Workspace') {
             steps {
@@ -19,15 +12,13 @@ pipeline {
         stage('Init') {
             steps {
                 checkout scm
+				echo 'cloning source code'
             }
         }
-	stage('build and upload'){
+	stage('build'){
         steps {
         script {
-          // upload files to S3
-            withAWS(region: "${REGION}", credentials: "${AWS_ACCOUNT_ID}") {
-              s3Upload(file: "pom.xml", bucket: "${BUCKET}", path: "/", acl: 'BucketOwnerFullControl')
-            }
+          sh 'mvn clean package'
 	  }
       }
     }
