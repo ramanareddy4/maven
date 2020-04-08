@@ -1,11 +1,7 @@
 #!groovy
 
 pipeline {
-	agent any
-	 tools {
-        maven 'Maven 3.6.3'
-        jdk 'jdk8'
-    }
+     agent any
      stages {
         stage('Clean Workspace') {
             steps {
@@ -24,7 +20,7 @@ pipeline {
         script {
           sh '''
                     echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${maven}"
+                    echo "M2_HOME=/home/ec2-user/maven"
                 '''
             sh 'mvn clean package'
 	  }
