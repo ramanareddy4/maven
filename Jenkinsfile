@@ -1,9 +1,7 @@
 #!groovy
 
 pipeline {
-	agent {
-	label 'devops'
-	}
+	agent any
      stages {
         stage('Clean Workspace') {
             steps {
@@ -20,7 +18,10 @@ pipeline {
 	stage('build'){
         steps {
         script {
-              withMaven(maven : 'maven') 
+          sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${maven}"
+                '''
             sh 'mvn clean package'
 	  }
       }
