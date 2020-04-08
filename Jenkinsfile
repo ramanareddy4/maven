@@ -18,10 +18,8 @@ pipeline {
 	stage('build'){
         steps {
         script {
-          sh '''
-                    export "M2_HOME=/home/ec2-user/maven/bin"
-                '''
-            sh 'mvn clean package'
+          sh 'export M2_HOME=/home/ec2-user/maven/bin'
+          sh 'mvn clean package'
 	  }
       }
     }
