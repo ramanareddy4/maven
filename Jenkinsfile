@@ -20,7 +20,7 @@ pipeline {
         script {
           sh '''
                     echo "PATH = ${PATH}"
-                    echo "M2_HOME=/home/ec2-user/maven"
+                    echo "M2_HOME=/home/ec2-user/maven/bin"
                 '''
             sh 'mvn clean package'
 	  }
